@@ -25,6 +25,27 @@ void loop () {
   setupLocation();
 }
 
+void moveFirstPlayer() {
+    readFirst();
+    if(firstMove == 0) return;
+    if(firstMove < 0) {
+        if(firstPlayerBoard[4] == 380) return;
+        int tempTab[5];
+        for (int i = 0; i < 4; i++){ 
+          firstPlayerBoard[i]= tempTab[i+1];
+          }
+        firstPlayerBoard[4] += 20;
+        
+    } else {
+        if(firstPlayerBoard[0] == 0) return;
+        int tempTab[5]=firstPlayerBoard;
+  
+        for (int i = 1; i < 4; i++){  firstPlayerBoard[i + 1]=tempTab[i];}
+        
+        firstPlayerBoard[0] -= 20;
+    }
+}
+
 // void loop() {
   // // put your main code here, to run repeatedly:
   // int firstValue = analogRead(joyX);
